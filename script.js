@@ -12,6 +12,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Contact form handling with AJAX
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formMessage = document.getElementById('formMessage');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        
+        // Disable button and show loading
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch('https://formspree.io/f/xvzgwvql', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                formMessage.className = 'form-message success';
+                formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            formMessage.className = 'form-message error';
+            formMessage.textContent = 'Sorry, there was an error. Please try again later.';
+            console.error('Error:', error);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        }
+    });
+}
+
 // Add animation on scroll
 const observerOptions = {
     threshold: 0.1,

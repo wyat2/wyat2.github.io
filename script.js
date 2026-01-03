@@ -12,18 +12,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact form handling
-// Form now submits directly to Formspree via action attribute
-// JavaScript is kept minimal for potential future enhancements
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-    });
-}
-
 // Add animation on scroll
 const observerOptions = {
     threshold: 0.1,

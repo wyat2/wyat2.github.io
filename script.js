@@ -13,55 +13,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Contact form handling
+// Form now submits directly to Formspree via action attribute
+// JavaScript is kept minimal for potential future enhancements
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            institution: document.getElementById('institution').value,
-            program: document.getElementById('program').value,
-            message: document.getElementById('message').value,
-            newsletter: document.getElementById('newsletter').checked
-        };
-        
-        const formMessage = document.getElementById('formMessage');
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        
-        // Disable submit button and show loading state
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
-        
-        // Send form data to Formspree
-        fetch('https://formspree.io/f/xvzgwvql', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (response.ok) {
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
-                contactForm.reset();
-            } else {
-                throw new Error('Form submission failed');
-            }
-        })
-        .catch(error => {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'Sorry, there was an error. Please try again later.';
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            // Re-enable submit button
-            submitButton.disabled = false;
-            submitButton.textContent = 'Send Message';
-        });
     });
 }
 

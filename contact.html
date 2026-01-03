@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Fab Penguin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h2>🐧 Fab Penguin</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="contact.html" class="btn-primary">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p class="contact-subtitle">Have questions about Fab Penguin? We're here to help your TRiO program succeed.</p>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's Start a Conversation</h2>
+                    <p>Whether you're interested in learning more about our software, need training support, or have specific questions about how Fab Penguin can benefit your TRiO program, we'd love to hear from you.</p>
+                    
+                    <div class="contact-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span>Expert guidance on implementation</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span>Personalized training options</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span>Quick response times</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            <span>Dedicated support team</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="institution">Institution</label>
+                            <input type="text" id="institution" name="institution" placeholder="Your educational institution">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program">TRiO Program Type</label>
+                            <select id="program" name="program">
+                                <option value="">Select a program (optional)</option>
+                                <option value="upward-bound">Upward Bound</option>
+                                <option value="student-support">Student Support Services</option>
+                                <option value="talent-search">Talent Search</option>
+                                <option value="eoc">Educational Opportunity Centers</option>
+                                <option value="mcnair">Ronald E. McNair Postbaccalaureate</option>
+                                <option value="veterans">Veterans Upward Bound</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Questions or Comments *</label>
+                            <textarea id="message" name="message" required rows="6" placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span>I'd like to receive updates about Fab Penguin software and training opportunities</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-large btn-submit">Send Message</button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Contact -->
+    <section class="alt-contact">
+        <div class="container">
+            <h3>Prefer a Different Way to Connect?</h3>
+            <p>We offer various training and support options including web-based sessions and on-site visits to help you maximize your use of our software.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Fab Penguin. All rights reserved.</p>
+            <p>Specialized Student Data Management for TRiO Programs</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

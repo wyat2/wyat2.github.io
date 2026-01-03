@@ -28,29 +28,15 @@ if (contactForm) {
             newsletter: document.getElementById('newsletter').checked
         };
         
-        // Display success message
         const formMessage = document.getElementById('formMessage');
-        formMessage.className = 'form-message success';
-        formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+        const submitButton = contactForm.querySelector('button[type="submit"]');
         
-        // Log form data (in production, this would send to a server)
-        console.log('Form submitted:', formData);
+        // Disable submit button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
         
-        // Reset form after 2 seconds
-        setTimeout(() => {
-            contactForm.reset();
-            formMessage.style.display = 'none';
-        }, 3000);
-        
-        // Note: For GitHub Pages, you'll need to integrate with a service like:
-        // - Formspree (https://formspree.io/)
-        // - Netlify Forms
-        // - Google Forms
-        // - Or a serverless function
-        
-        // Example with Formspree (uncomment and add your endpoint):
-        /*
-        fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        // Send form data to Formspree
+        fetch('https://formspree.io/f/xvzgwvql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,8 +56,12 @@ if (contactForm) {
             formMessage.className = 'form-message error';
             formMessage.textContent = 'Sorry, there was an error. Please try again later.';
             console.error('Error:', error);
+        })
+        .finally(() => {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
         });
-        */
     });
 }
 

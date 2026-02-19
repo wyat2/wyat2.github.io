@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andrew's Testing Environment</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#111a3a;
+      --card: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.18);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.75);
+      --accent: #7c5cff;
+      --accent2:#22d3ee;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(34,211,238,.28), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:grid;
+      place-items:center;
+      padding: 32px 16px;
+    }
+
+    .card{
+      width: min(880px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 26px;
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 18px 50px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: .2px;
+      line-height: 1.08;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 3px rgba(124,92,255,.15);
+    }
+
+    p{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    a.btn{
+      text-decoration:none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    a.btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.28);
+    }
+    a.primary{
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(124,92,255,.22);
+    }
+
+    footer{
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(234,240,255,.55);
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .95em;
+      color: rgba(234,240,255,.85);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="tag"><span class="dot"></span> Deployment target: <code>wyat2/wyat2.github.io</code></div>
+    <h1>Andrew's Testing Environment</h1>
+    <p>
+      This is a temporary testing page with a simple, modern layout and gradient background.
+      Update this file as needed for experiments and previews.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#" onclick="alert('Hello from Andrew\\'s Testing Environment!'); return false;">Test Action</a>
+      <a class="btn" href="index.html.backup">Open backup (index.html.backup)</a>
+    </div>
+
+    <footer>Last updated: <span id="date"></span></footer>
+  </main>
+
+  <script>
+    document.getElementById('date').textContent = new Date().toISOString().slice(0,10);
+  </script>
+</body>
+</html>

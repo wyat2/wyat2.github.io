@@ -110,11 +110,6 @@ body {
     border: 2px solid var(--primary-color);
 }
 
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
 .btn-large {
     padding: 1rem 2rem;
     font-size: 1.1rem;

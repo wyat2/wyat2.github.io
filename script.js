@@ -1,3 +1,12 @@
+// Demo button loading spinner
+const demoBtn = document.getElementById('demo-btn');
+if (demoBtn) {
+    demoBtn.addEventListener('click', function() {
+        this.classList.add('btn-loading');
+        this.textContent = 'Loading...';
+    });
+}
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
